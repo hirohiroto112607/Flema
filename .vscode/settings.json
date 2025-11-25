@@ -1,1 +1,8 @@
-{}
+{
+    "editor.tabSize": 2,
+    "editor.defaultFormatter": "vscjava.vscode-java-pack",
+    "editor.formatOnSave": true,
+    "files.eol": "\n",
+    "files.insertFinalNewline": true,
+    "files.trimTrailingWhitespace": true
+}
