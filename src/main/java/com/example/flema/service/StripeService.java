@@ -1,0 +1,54 @@
+package com.example.fleamarketsystem.service;
+
+// Stripe SDKのimport
+import java.math.BigDecimal;
+
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Service;
+
+import com.stripe.Stripe;
+import com.stripe.exception.StripeException;
+import com.stripe.model.PaymentIntent;
+import com.stripe.param.PaymentIntentCreateParams;
+
+@Service
+public class StripeService {
+
+    // コンストラクタでシークレットキーを初期化
+    public StripeService(@Value("${stripe.api.secretKey}") String secretKey) {
+        // Stripe SDK にAPIキーを設定（スレッドセーフ）
+        Stripe.apiKey = secretKey;
+    }
+
+    // 支払い意図(PaymentIntent)を作成
+    public PaymentIntent createPaymentIntent(
+        BigDecimal amount,
+        String currency,
+        String description) throws StripeException {
+        // 通貨の最小単位へ変換（JPYなら1円→100の係数不要だがStripeは整数で受けるため×100は不要、しかし他通貨に備え共通化）
+        long value = "jpy".equalsIgnoreCase(currency) ? amount.longValue() :
+        amount.multiply(new BigDecimal(100)).longValue();
+
+        // 作成パラメータをビルド
+        PaymentIntentCreateParams params = PaymentIntentCreateParams.builder()
+        // 金額（最小単位の整数、通貨コード、支払い手段の有効化
+        .setAmount(value)
+        .setCurrency(currency)
+        .setDescription(description)
+        .setAutomaticPaymentMethods(
+        PaymentIntentCreateParams.AutomaticPaymentMethods.builder()
+        .setEnabled(true)
+        .build()
+        )
+        .build();        
+        // PaymentIntentを作成して返す
+        return PaymentIntent.create(params);
+    }
+
+    // 既存のPaymentIntentを取得
+    public PaymentIntent retrievePaymentIntent(
+        String paymentIntentId) throws StripeException {
+        // IDから取得
+        return PaymentIntent.retrieve(paymentIntentId);
+    }
+}
