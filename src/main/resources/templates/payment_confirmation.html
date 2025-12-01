@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ja" xmlns:th="http://www.thymeleaf.org">
+
 <head>
 
     <meta charset="UTF-8">
@@ -10,6 +11,7 @@
 
     <script src="https://js.stripe.com/v3/"></script>
 </head>
+
 <body>
 
     <div class="container">
@@ -34,11 +36,11 @@
 
     <script th:inline="javascript">
         // サーバから受け取った Stripe 公開キー
-        const stripePublicKey = [[${stripePublicKey}]];
+        const stripePublicKey = [[${ stripePublicKey }]];
         // サーバサイドで作成された PaymentIntent のクライアントシークレット
-        const clientSecret = [[${clientSecret}]];
+        const clientSecret = [[${ clientSecret }]];
         // 遷移元の商品 ID（戻り導線などに活用）
-        const itemId = [[${itemId}]];
+        const itemId = [[${ itemId }]];
 
         // Stripe を公開キーで初期化
         const stripe = Stripe(stripePublicKey);
@@ -93,4 +95,5 @@
         });
     </script>
 </body>
+
 </html>

@@ -57,7 +57,8 @@
           <!-- 空選択のプレースホルダ -->
           <option value="">選択してください</option>
           <!-- categories をループして option を生成。既存カテゴリと一致時は選択 -->
-          <option th:each="category : ${categories}" th:value="${category.id}" th:text="${category.name}" th:selected="${item.category != null and item.category.id == category.id}"></option>
+          <option th:each="category : ${categories}" th:value="${category.id}" th:text="${category.name}"
+            th:selected="${item.category != null and item.category.id == category.id}"></option>
         </select>
       </p>
       <p>
