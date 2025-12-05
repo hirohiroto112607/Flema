@@ -1,4 +1,4 @@
-package com.example.fleamarketsystem.service;
+package com.example.flema.service;
 
 // Stripe SDKのimport
 import java.math.BigDecimal;
@@ -40,7 +40,7 @@ public class StripeService {
         .setEnabled(true)
         .build()
         )
-        .build();        
+        .build();
         // PaymentIntentを作成して返す
         return PaymentIntent.create(params);
     }

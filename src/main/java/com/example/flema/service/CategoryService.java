@@ -1,7 +1,7 @@
 package com.example.flema.service;
 
 import com.example.flema.entity.Category;
-import com.example.fleam.repository.CategoryRepository;
+import com.example.flema.repository.CategoryRepostitory;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -10,10 +10,10 @@ import java.util.Optional;
 @Service
 public class CategoryService {
     // カテゴリリポジトリの参照
-    private final CategoryRepository categoryRepository;
+    private final CategoryRepostitory categoryRepository;
 
     // 依存性をコンストラクタで注入
-    public CategoryService(CategoryRepository categoryRepository) {
+    public CategoryService(CategoryRepostitory categoryRepository) {
         // フィールドへ設定
         this.categoryRepository = categoryRepository;
     }

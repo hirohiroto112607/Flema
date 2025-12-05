@@ -1,4 +1,4 @@
-package com.example.fleamarketsystem.service;
+package com.example.flema.service;
 
 import com.example.flema.entity.FavoriteItem;
 import com.example.flema.entity.Item;
@@ -14,10 +14,10 @@ import java.util.stream.Collectors;
 
 @Service
 public class FavoriteService {
-    
+
     private final FavoriteItemRepository favoriteItemRepository;
     private final ItemRepository itemRepository;
-    
+
     public FavoriteService(
         FavoriteItemRepository favoriteItemRepository,
         ItemRepository itemRepository) {

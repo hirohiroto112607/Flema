@@ -12,11 +12,11 @@ import java.util.List;
 
 @Service
 public class ChatService {
-    
+
     private final ChatRepository chatRepository;
     private final ItemRepository itemRepository;
     private final LineNotifyService lineNotifyService;
-    
+
     public ChatService(
         ChatRepository chatRepository,
         ItemRepository itemRepository,
@@ -63,7 +63,7 @@ public class ChatService {
             item.getName(),
             sender.getName(),
             message);
-            
+
             // LINE Notifyへ送信
             lineNotifyService.sendMessage(receiver.getLineNotifyToken(), notificationMessage);
         }

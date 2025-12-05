@@ -7,29 +7,32 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
+import com.example.flema.entity.Item;
+import com.example.flema.entity.User;
+
 @Repository
 public interface ItemRepository extends JpaRepository<Item, Long> {
-    
+
     Page<Item> finsByNameContainingIgonreCaseAndStatus(
         String name,
         String status,
         Pageable pageble
     );
 
-    Page<item> findByCategoryIdAndStatus(
+    Page<Item> findByCategoryIdAndStatus(
         Long categoryId,
         String status,
         Pageable pageble
     );
 
-    Page<item> findByNameContainingIgnoreCaseAndCategoryIdAndStatus(
+    Page<Item> findByNameContainingIgnoreCaseAndCategoryIdAndStatus(
         String name,
         Long categoryId,
         String status,
         Pageable pageable
     );
 
-    Page<item> findByStatus(
+    Page<Item> findByStatus(
         String status,
         Pageable pageable
     );
