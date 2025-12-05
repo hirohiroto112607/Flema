@@ -1,16 +1,16 @@
 package com.example.flema.service;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
 import com.example.flema.entity.FavoriteItem;
 import com.example.flema.entity.Item;
 import com.example.flema.entity.User;
 import com.example.flema.repository.FavoriteItemRepository;
 import com.example.flema.repository.ItemRepository;
-
-import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
-
-import java.util.List;
-import java.util.stream.Collectors;
 
 @Service
 public class FavoriteService {

@@ -8,6 +8,6 @@ import org.springframework.stereotype.Repository;
 import com.example.flema.entity.Category;
 
 @Repository
-public interface CategoryRepostitory extends JpaRepository<Category, Long> {
+public interface CategoryRepository extends JpaRepository<Category, Long> {
     Optional<Category> findByName(String name);
 }
