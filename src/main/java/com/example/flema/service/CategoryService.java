@@ -11,10 +11,10 @@ import java.util.Optional;
 @Service
 public class CategoryService {
     // カテゴリリポジトリの参照
-    private final CategoryRepostitory categoryRepository;
+    private final CategoryRepository categoryRepository;
 
     // 依存性をコンストラクタで注入
-    public CategoryService(CategoryRepostitory categoryRepository) {
+    public CategoryService(CategoryRepository categoryRepository) {
         // フィールドへ設定
         this.categoryRepository = categoryRepository;
     }

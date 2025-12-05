@@ -13,7 +13,7 @@ import com.example.flema.entity.User;
 @Repository
 public interface ItemRepository extends JpaRepository<Item, Long> {
 
-    Page<Item> finsByNameContainingIgonreCaseAndStatus(
+    Page<Item> findByNameContainingIgnoreCaseAndStatus(
         String name,
         String status,
         Pageable pageble

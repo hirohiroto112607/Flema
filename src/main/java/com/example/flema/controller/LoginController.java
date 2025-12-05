@@ -1,5 +1,5 @@
 // コントローラのパッケージ宣言
-package com.example.fleamarketsystem.controller;
+package com.example.flema.controller;
 
 // MVC コントローラのアノテーション
 import org.springframework.stereotype.Controller;

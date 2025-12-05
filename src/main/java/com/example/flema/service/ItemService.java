@@ -13,17 +13,16 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
-import java.math.BigDecimal;
 import java.util.List;
 import java.util.Optional;
 
 @Service
 public class ItemService {
-    
+
     private final ItemRepository itemRepository;
     private final CategoryService categoryService;
     private final CloudinaryService cloudinaryService;
-    
+
     public ItemService(
         ItemRepository itemRepository,
         CategoryService categoryService,
@@ -97,7 +96,7 @@ public class ItemService {
         // 商品を保存して返す
         return itemRepository.save(item);
     }
-    
+
     // 商品削除：Cloudinary上の画像も可能なら削除してからDB削除
     public void deleteItem(Long id) {
         // まず対象商品を取得し、存在する場合のみ削除処理を進める

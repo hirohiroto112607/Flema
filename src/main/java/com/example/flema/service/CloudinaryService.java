@@ -24,28 +24,28 @@ public class CloudinaryService {
 
     // 必要な認証情報をコンストラクタインジェクションで受け取る
     public CloudinaryService(
-        // クラウド名をapplication.propertiesから注入
-        @Value("${cloudinary.cloud-name}") String cloudName,
-        // APIキーを注入
-        @Value("${cloudinary.api-key}") String apiKey,
-        // APIシークレットを注入
-        @Value("${cloudinary.api-secret}") String apiSecret) {
+            // クラウド名をapplication.propertiesから注入
+            @Value("${cloudinary.cloud-name}") String cloudName,
+            // APIキーを注入
+            @Value("${cloudinary.api-key}") String apiKey,
+            // APIシークレットを注入
+            @Value("${cloudinary.api-secret}") String apiSecret) {
         // 渡された資格情報でCloudinaryクライアントを初期化
         cloudinary = new Cloudinary(ObjectUtils.asMap(
-        "cloud_name", cloudName,
-        "api_key", apiKey,
-        "api_secret", apiSecret));
+                "cloud_name", cloudName,
+                "api_key", apiKey,
+                "api_secret", apiSecret));
     }
 
     // 画像をアップロードして公開URLを返す（空ファイルはnull）
     public String uploadFile(MultipartFile file) throws IOException {
-    // アップロードなしのケースはnullを返す
+        // アップロードなしのケースはnullを返す
         if (file.isEmpty()) {
             return null;
         }
         // バイト配列をそのままアップロード（オプションは既定）
         Map uploadResult = cloudinary.uploader().upload(file.getBytes(),
-        ObjectUtils.emptyMap());
+                ObjectUtils.emptyMap());
         // 返却Mapから公開URLを取り出して返す
         return uploadResult.get("url").toString();
     }
