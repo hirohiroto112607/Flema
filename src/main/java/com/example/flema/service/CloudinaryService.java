@@ -37,14 +37,14 @@ public class CloudinaryService {
                 "api_secret", apiSecret));
     }
 
-    // 画像をアップロードして公開URLを返す（空ファイルはnull）
+    @SuppressWarnings("unchecked")
     public String uploadFile(MultipartFile file) throws IOException {
         // アップロードなしのケースはnullを返す
         if (file.isEmpty()) {
             return null;
         }
-        // バイト配列をそのままアップロード（オプションは既定）
-        Map uploadResult = cloudinary.uploader().upload(file.getBytes(),
+        // バイト配列をそのままアップロード(オプションは既定)
+        Map<String, Object> uploadResult = cloudinary.uploader().upload(file.getBytes(),
                 ObjectUtils.emptyMap());
         // 返却Mapから公開URLを取り出して返す
         return uploadResult.get("url").toString();
