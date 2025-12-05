@@ -7,7 +7,5 @@
     "[java]": {
         "editor.defaultFormatter": "redhat.java"
     },
-    "java.compile.nullAnalysis.mode": "automatic",
-    "java.format.settings.url": ".vscode/java-formatter.xml",
-    "java.configuration.updateBuildConfiguration": "automatic"
+    "java.compile.nullAnalysis.mode": "automatic"
 }
