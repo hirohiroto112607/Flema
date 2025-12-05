@@ -1,4 +1,4 @@
-package com.example.fleamarketsystem.service;
+package com.example.flema.service;
 
 // Stripe SDKのimport
 import java.math.BigDecimal;

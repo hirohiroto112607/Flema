@@ -1,7 +1,7 @@
 package com.example.flema.service;
 
 import com.example.flema.entity.Category;
-import com.example.fleam.repository.CategoryRepository;
+import com.example.flema.repository.CategoryRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
