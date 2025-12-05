@@ -15,10 +15,10 @@ import java.util.OptionalDouble;
 
 @Service
 public class ReviewService {
-    
+
     private final ReviewRepository reviewRepository;
     private final AppOrderRepository appOrderRepository;
-    
+
     public ReviewService(
         ReviewRepository reviewRepository,
         AppOrderRepository appOrderRepository) {
@@ -58,7 +58,7 @@ public class ReviewService {
             review.setItem(order.getItem());
             review.setRating(rating);
             review.setComment(comment);
-            
+
             // 保存して返却
             return reviewRepository.save(review);
     }
